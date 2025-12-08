@@ -10,7 +10,7 @@ const Home = () => {
         <ul className="list-disc list-inside space-y-1">
           <li><strong>Name:</strong> MOOGAMBIGAI ENTERPRISES</li>
           <li><strong>Established:</strong> 2020</li>
-          <li><strong>Location:</strong> Chennai, Tamil Nadu, India</li>
+          <li><strong>Location:</strong> Chennai,n Tamil Nadu, India</li>
           <li>
             <strong>Contact Information:</strong>
             <ul className="list-disc list-inside ml-6 space-y-1">
