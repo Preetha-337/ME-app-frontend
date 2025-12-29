@@ -1,17 +1,25 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./home.jsx";
-import Aboutus from "./Aboutus.jsx";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Header from "./Navbar/Header";
+import Allmodule from "./Allmodule";
+import Banner from "./Banner";
+import Home from "./home";
+import Aboutus from "./Aboutus";
 
-function Router({ children }) {
+function Router() {
   return (
-    <BrowserRouter>
-      {children} 
+    <>
+
+      <Header />
+        <Banner />
+      <Allmodule />
       <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
-        <Route path ="/aboutUs" element={<Aboutus/>}/>
+        <Route path="/aboutUs" element={<Aboutus />} />
       </Routes>
-    </BrowserRouter>
+    
+    </>
   );
 }
 

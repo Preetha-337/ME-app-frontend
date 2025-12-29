@@ -1,11 +1,10 @@
-// store.js
 import { configureStore } from '@reduxjs/toolkit';
-import { bannerReducer } from './Banner'; // Import from the combined component file
+import bannerReducer from './redux/bannerSlice';
 
 const store = configureStore({
   reducer: {
-    banner: bannerReducer,
+    banner: bannemrReducer,
   },
 });
 
-export default store; 
+export default store;
