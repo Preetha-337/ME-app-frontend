@@ -3,7 +3,7 @@ import bannerReducer from './redux/bannerSlice';
 
 const store = configureStore({
   reducer: {
-    banner: bannemrReducer,
+    banner: bannerReducer,
   },
 });
 

@@ -1,15 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  IconButton,
+  Drawer,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
-const Header = () => {
+// Menu items declared outside
+const menuItems = [
+  { text: "Home", link: "#about" },
+  { text: "About Us", link: "#skill" },
+  { text: "Contact", link: "#Project" },
+];
+
+function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <nav className="bg-gray-800 text-white py-4 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto flex justify-center gap-x-12">
-        <a href="#home-section" className="hover:text-yellow-300">Home</a>
-        <a href="#about-section" className="hover:text-yellow-300">About</a>
-        <a href="#contact-section" className="hover:text-yellow-300">Contact</a>
-      </div>
-    </nav>
-  );
-};
+    <Box>
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", p: 2 }}>
+        {/* MOBILE MENU ICON */}
+        <IconButton
+          onClick={() => setOpen(true)}
+          sx={{ display: { xs: "block", md: "none" }, color: "white" }}
+        >
+          <MenuIcon fontSize="large" />
+        </IconButton>
 
-export default Header;
+        {/* DESKTOP MENU */}
+        <List
+          sx={{
+            display: { xs: "none", md: "flex" },
+            flexDirection: "row",
+            padding: 0,
+          }}
+        >
+          {menuItems.map((item) => (
+            <ListItem
+              key={item.text}
+              component="a"
+              href={item.link}
+              sx={{ width: "auto", px: 2 }}
+            >
+              <ListItemText
+                primary={item.text}
+                primaryTypographyProps={{ color: "white" }}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+
+      {/* MOBILE DRAWER */}
+      <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+        <Box
+          sx={{
+            width: 200,
+            height: "100%",
+          background: "linear-gradient(135deg, #4facfe, #00f2fe)"
+
+          }}
+        >
+          <List>
+            {menuItems.map((item) => (
+              <ListItem
+                key={item.text}
+                component="a"
+                href={item.link}
+                onClick={() => setOpen(false)}
+                sx={{ px: 3 }}
+              >
+                <ListItemText
+                  primary={item.text}
+                  primaryTypographyProps={{ color: "white" }}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+    </Box>
+  );
+}
+
+export default Navbar;
