@@ -9,6 +9,7 @@ const Aboutus = () => {
       <h2 className="text-2xl font-semibold mb-4">Company Overview</h2>
       <ul className="list-disc list-inside space-y-1">
         <li><strong>Name:</strong> {company?.name}</li>
+        {console.log("company",company)}
         <li><strong>Established:</strong> {company?.established}</li>
         <li><strong>Location:</strong> {company?.location}</li>
         <li><strong>Phone:</strong> {company?.phone}</li>

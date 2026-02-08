@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import car from '../assets/car.png';
 
 const initialState = {

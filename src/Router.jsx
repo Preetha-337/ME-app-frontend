@@ -4,55 +4,71 @@ import Header from "./Navbar/Header";
 import Allmodule from "./Allmodule";
 import Banner from "./Banner";
 import Home from "./home";
-import { Container, Stack, AppBar, Toolbar, Grid, Box, Typography } from "@mui/material";
+import { AppBar, Toolbar, Box, Typography } from "@mui/material";
 import Aboutus from "./Aboutus";
-
+import Navbar from "./Navbar/navbar";
+import ME from "./assets/ME.jpeg";
+import Contact from "./Contact";
+import Electronics from "./Electronics";
+import Electrical from "./Electrical";
+import Application from "./Application";
+import Services from "./Services";
+import Business from "./Business";
+import Products from "./Products"
+import SubmitRFQ from "./SubmitRFQ"
+import Product1 from "./Product1";
 function Router() {
   return (
     <>
- <AppBar 
+      <AppBar
         position="fixed"
-        sx={{ 
-          top: 0,
-          left: 0,
-          right: 0,
-          width: "100vw", // Full viewport width
-       background: "linear-gradient(135deg, #2980b9, #6dd5fa)",
-
-
-
-          zIndex: 1200,
+        sx={{
+          background: "linear-gradient(135deg, #2980b9, #6dd5fa)",
         }}
       >
-        <Toolbar sx={{ 
-          display: "flex", 
-          justifyContent: "space-between",
-          minHeight: { xs: 56, sm: 64 }, // Responsive toolbar height
-          px: { xs: 2, sm: 3 }, // Responsive padding
-          width: "100%",
-          maxWidth: "100%",
-        }}>
-          <Typography 
-            // variant={isMobile ? "subtitle1" : "h6"} 
-            component="div"
-            sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}
-          >
-           Mooga Enterprises
-          </Typography>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Header />
-          </Box>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box
+            component="img"
+            src={ME}
+            sx={{ width: { md: "5%", xs: 50 }, borderRadius: "20%" }}
+          />
+
+          <Typography>MOOGAMBIGAI ENTERPRISES</Typography>
+
+          <Header />
         </Toolbar>
       </AppBar>
-      <Header />
-        <Banner />
-      <Allmodule />
+
+      {/* push content below fixed AppBar */}
+      <Toolbar />
+
       <Routes>
+        {/* redirect to /home */}
         <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/aboutUs" element={<Aboutus />} />
+
+        {/* HOME PAGE ONLY */}
+        <Route
+          path="/home"
+          element={
+            <>
+              <Banner />
+              <Allmodule />
+            </>
+          }
+        />
+        <Route path="/about" element={<Aboutus />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/electronics" element={<Electronics />} />
+        <Route path="/electrical" element={<Electrical />} />
+        <Route path="/application" element={<Application/>}/>
+        <Route path ="/service" element ={<Services/>}/>
+        <Route path="/aboutUs" element={<Business/>}/>
+        <Route path="/product" element ={<Products/>}/>
+        <Route path ="/products" element={<Product1/>}/>
+        <Route path="/submit" element ={<SubmitRFQ/>}/>
       </Routes>
-    
+
+      <Navbar />
     </>
   );
 }
