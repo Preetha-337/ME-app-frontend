@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import bannerReducer from './redux/bannerSlice';
+import bannerReducer from './bannerSlice';
 import companyReducer from './companySlice';
 
 const store = configureStore({
