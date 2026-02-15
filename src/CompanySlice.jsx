@@ -24,7 +24,7 @@ const initialState = {
 };
 
 const companySlice = createSlice({
-  name: "company",
+  name: 'company',
   initialState,
   reducers: {}
 });
