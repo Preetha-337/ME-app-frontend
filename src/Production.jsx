@@ -119,14 +119,14 @@ function KeyProductsServices() {
 </Card>
 <Grid
   container
-  spacing={{ md: 7, sm: 2, xs: 30 }}  
+  spacing={{ md: 5, sm: 2, xs: 30 }}  
   alignItems="center"
   direction="row"
   sx={{
     mt: { md: 2, xs: 3 },
     px: { xs: 2, md: 0 },
       width: { xs: 500, sm:"100%", md: "100%" },
-    ml: { md: 9, xs: 0, sm: 1 },
+    ml: { md: 5, xs: 0, sm: 1 },
     flexWrap: { xs: "nowrap", md: "wrap" }, 
     overflowX: { xs: "auto", md: "visible" }, 
   }}

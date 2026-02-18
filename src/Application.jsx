@@ -22,8 +22,8 @@ function Application() {
     <Grid
       id="application"
       container
-      spacing={{xs:7,sm:7,md:8}}
-
+      spacing={{xs:7,sm:7,md:4}}
+    
       sx={{  p: 5 ,width:{xs:500,sm:"100%",md:"100%"},height:"100%"}}
     >
       {applications.map((app, index) => (
@@ -40,7 +40,7 @@ function Application() {
               height: "100%",
               textAlign: "center",
               width:{xs:150,sm:150,md:330},
-              p: 2,
+              p: 1,
               borderRadius: 3,
               background:
                 "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(245,247,250,0.1))",

@@ -76,7 +76,7 @@ const Services = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width:{md:400,sm:190,xs:200},
+              width:{md:350,sm:190,xs:200},
               p: 2,
               boxShadow: 3,
               background: color.gradient || color.bg,
@@ -106,7 +106,7 @@ const Services = () => {
       ADDITIONAL SERVICES
     </Typography>
     
-    <Grid container spacing={{xs:3,sm:3,md:8}} mt={1}>
+    <Grid container spacing={{xs:3,sm:3,md:4}} mt={1}>
       {/* Card 1 - Expertise */}
       <Grid item xs={12} sm={6} md={4}>
         <Card
@@ -116,7 +116,7 @@ const Services = () => {
             alignItems: "center",
             justifyContent: "center",
             p: 1,
-                  width:{md:"110%",sm:700,xs:480},
+                  width:{md:"100%",sm:700,xs:480},
             boxShadow: 3,
             background: cardColors[0]?.gradient || cardColors[0]?.bg || "#f0f8ff",
             transition: "all 0.35s ease",
@@ -139,7 +139,7 @@ const Services = () => {
       </Grid>
 
       {/* Card 2 - Support */}
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} md={3}>
         <Card
           sx={{
             minHeight: 120,
@@ -147,7 +147,7 @@ const Services = () => {
             alignItems: "center",
             justifyContent: "center",
             p: 1,
-              width:{md:"110%",sm:700,xs:480},
+              width:{md:"100%",sm:700,xs:480},
             boxShadow: 3,
             background: cardColors[1]?.gradient || cardColors[1]?.bg || "#fff0f5",
             transition: "all 0.35s ease",
@@ -179,7 +179,7 @@ const Services = () => {
             justifyContent: "center",
             p: 1,
             boxShadow: 3,
-              width:{md:"110%",sm:700,xs:480},
+              width:{md:"90%",sm:700,xs:480},
             background: cardColors[2]?.gradient || cardColors[2]?.bg || "#f0fff0",
             transition: "all 0.35s ease",
             "&:hover": {

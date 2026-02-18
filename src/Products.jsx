@@ -11,6 +11,8 @@ import img6 from "./assets/img6.jpeg"
 import img7 from "./assets/img7.jpeg"
 import img8 from "./assets/img8.jpeg"
 import img9 from "./assets/img9.jpeg"
+import wire from "./assets/wire.png"
+import industrial from "./assets/industrial.png"
 import cable from "./assets/cable.png"
 import connector1 from "./assets/connector1.jpg"
 import connector3 from "./assets/connector3.jpg"
@@ -88,6 +90,30 @@ function ProductsServices() {
         <Box
           component="img"
           src={img6}
+        //  alt="terminal"
+          sx={{ width: 380,   objectFit: "cover",}}
+        />
+   
+    </Card>
+  </Grid>
+   <Grid item>
+    <Card
+      elevation={3}
+      sx={{
+        width: 200,
+        height:200,
+             overflow: "hidden",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        "&:hover": {
+          transform: "scale(1.05)",
+          boxShadow: "0px 10px 25px rgba(0,0,0,0.3)",
+        },
+      }}
+    >
+     
+        <Box
+          component="img"
+          src={wire}
         //  alt="terminal"
           sx={{ width: 380,   objectFit: "cover",}}
         />
@@ -232,6 +258,30 @@ function ProductsServices() {
         <Box
           component="img"
           src={connector1}
+        //  alt="terminal"
+          sx={{ width: "100%",   objectFit: "cover",}}
+        />
+   
+    </Card>
+  </Grid>
+  <Grid item>
+    <Card
+      elevation={3}
+      sx={{
+        width: 200,
+        height:200,
+             overflow: "hidden",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        "&:hover": {
+          transform: "scale(1.05)",
+          boxShadow: "0px 10px 25px rgba(0,0,0,0.3)",
+        },
+      }}
+    >
+     
+        <Box
+          component="img"
+          src={industrial}
         //  alt="terminal"
           sx={{ width: "100%",   objectFit: "cover",}}
         />
