@@ -18,7 +18,7 @@ const Product1 = () => {
     background: "linear-gradient(135deg, rgba(255,255,255,0.4), rgba(245,247,250,0.4))",
     borderRadius: 3,
     mb: 4,
-       width:{md:"100%",sm:700,xs:500} ,
+       width:{md:"95%",sm:700,xs:500} ,
      
   }}
 >

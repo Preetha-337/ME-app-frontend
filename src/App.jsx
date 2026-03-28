@@ -5,6 +5,7 @@ import Router from "./Router";
 import background from "./assets/background.jpg";
 
 function App() {
+
   const overlayStyle = {
     position: "fixed",
     inset: 0,
@@ -18,15 +19,17 @@ function App() {
 
   // Prevent horizontal scroll
   useEffect(() => {
-    document.body.style.overflowX = "hidden"; // disables horizontal scroll
+    document.body.style.overflowX = "hidden";
+
     return () => {
-      document.body.style.overflowX = "auto"; // restore on unmount
+      document.body.style.overflowX = "auto";
     };
   }, []);
 
   return (
     <Provider store={store}>
       <div style={overlayStyle}></div>
+
       <div style={{ position: "relative", zIndex: 0 }}>
         <Router />
       </div>
