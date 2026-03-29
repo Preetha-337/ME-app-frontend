@@ -26,22 +26,57 @@ const SubmitRFQ = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Form validation
+    const form = e.target;
+    const formData = new FormData(form);
+    const user_name = formData.get('user_name');
+    const user_email = formData.get('user_email');
+    const part_no = formData.get('part_no');
+    const quantity = formData.get('quantity');
+    const contact_number = formData.get('contact_number');
+    
+    if (!user_name || !user_email || !part_no || !quantity || !contact_number) {
+      setSnackbar({
+        open: true,
+        message: 'Please fill in all required fields.',
+        severity: 'error'
+      });
+      return;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(user_email)) {
+      setSnackbar({
+        open: true,
+        message: 'Please enter a valid email address.',
+        severity: 'error'
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
-    // Get form data for logging
-    const formData = new FormData(e.target);
-    const formValues = {};
-    for (let [key, value] of formData.entries()) {
-      formValues[key] = value;
-    }
-    console.log('Submitting RFQ with data:', formValues);
-
     try {
-      const result = await emailjs.sendForm(
-        "service_nmkvasf",      // Your EmailJS Service ID
-        "template_52mwr2g",     // Your EmailJS Template ID
-        e.target,
-        "DIXoGh3XS7TeZs4YP"     // Your EmailJS Public Key
+      // Prepare data with both user_name and name (for template compatibility)
+      const templateParams = {
+        user_name: user_name,
+        name: user_name,  // This fixes the {{name}} placeholder
+        user_email: user_email,
+        part_no: part_no,
+        quantity: quantity,
+        target_price: formData.get('target_price') || 'Not specified',
+        contact_number: contact_number
+      };
+      
+      console.log('Sending RFQ with data:', templateParams);
+      
+      const result = await emailjs.send(
+        "service_nmkvasf",
+        "template_52mwr2g",
+        templateParams,
+        "DIXoGh3XS7TeZs4YP"
       );
       
       console.log('Success:', result.text);
@@ -53,7 +88,7 @@ const SubmitRFQ = () => {
       e.target.reset(); // Clear the form
       
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error details:', error);
       setSnackbar({
         open: true,
         message: `Failed to submit RFQ: ${error.text || 'Please try again later.'}`,
@@ -190,8 +225,6 @@ const SubmitRFQ = () => {
               />
             </Grid>
 
-          
-
             <Grid item xs={12}>
               <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
                 <Button
@@ -246,5 +279,5 @@ const SubmitRFQ = () => {
     </Grid>
   );
 };
-
+    
 export default SubmitRFQ;
