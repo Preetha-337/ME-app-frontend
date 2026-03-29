@@ -197,7 +197,7 @@ function Business() {
                 </Grid>
               </Grid>
 
-              {/* RIGHT IMAGE */}
+              {/* RIGHT IMAGE
               <Grid item xs={12} md={5} sx={{ textAlign: "center" }}>
                 <Box
                   component="img"
@@ -208,7 +208,7 @@ function Business() {
                     boxShadow: "0 12px 30px rgba(0,0,0,0.25)",
                   }}
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
           </CardContent>
         </Card>
