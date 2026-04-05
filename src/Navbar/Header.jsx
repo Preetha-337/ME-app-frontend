@@ -19,8 +19,7 @@ const menuItems = [
   { text: "ContactUs", link: "/contact" },
   { text: "Services", link: "/service" },
   {text:"Products",link:"/product"},
-     { text: "Electrical", link: "/electrical" }, 
-   
+  { text: "Electrical", link: "/electrical" }, 
   {text:"Application Area",link:"/application"},
     { text: "Electronics", link: "/electronics" }, 
   {text:"Submit RFQ",link:"/submit"}
