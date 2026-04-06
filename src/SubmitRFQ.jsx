@@ -59,7 +59,7 @@ const SubmitRFQ = () => {
     setIsSubmitting(true);
 
     try {
-      // Prepare data with both user_name and name (for template compatibility)
+      
       const templateParams = {
         // user_name: user_name,
         name: user_name,  
