@@ -1,158 +1,111 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
   Box,
   Card,
   TextField,
-  List,
-  ListItem,
-  ListItemIcon,
   Typography,
   Button,
-  useMediaQuery,
-  Link,
   Snackbar,
   Alert,
-  CircularProgress
+  CircularProgress,
 } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import SendIcon from "@mui/icons-material/Send";
-import Business from "@mui/icons-material/Business";
-import CalendarToday from "@mui/icons-material/CalendarToday";
-import LocationOn from "@mui/icons-material/LocationOn";
-import Phone from "@mui/icons-material/Phone";
-import Email from "@mui/icons-material/Email";
-
-const EMAILJS_CONFIG = {
-  SERVICE_ID: "service_0vypwma",
-  TEMPLATE_ID: "template_j8xgpbn",
-  PUBLIC_KEY: "Kj0puaWRNsFuYb-Qp"
-};
 
 const Contact = () => {
-  const company = useSelector((state) => state.company);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  const listFontSize = isMobile ? "0.75rem" : isTablet ? "0.85rem" : "0.95rem";
-
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
-    email: ""
+    email: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: "",
-    severity: "success"
-  });
 
   useEffect(() => {
-    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+    emailjs.init("Kj0puaWRNsFuYb-Qp");
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
-  const handleCloseSnackbar = () => {
-    setSnackbar({ ...snackbar, open: false });
-  };
+  const validateForm = () => {
+    let newErrors = {};
 
-  const sendEmail = async () => {
     if (!formData.name.trim()) {
-      setSnackbar({ open: true, message: "Please enter your name", severity: "error" });
-      return;
+      newErrors.name = "Name is required";
     }
 
-    if (!formData.mobile.trim()) {
-      setSnackbar({ open: true, message: "Please enter your mobile number", severity: "error" });
-      return;
+    if (!formData.mobile) {
+      newErrors.mobile = "Mobile number is required";
+    } else if (!/^[0-9]{10}$/.test(formData.mobile)) {
+      newErrors.mobile = "Mobile number must be 10 digits";
     }
 
-    const mobileRegex = /^[0-9]{10}$/;
-    if (!mobileRegex.test(formData.mobile)) {
-      setSnackbar({ open: true, message: "Please enter a valid 10-digit mobile number", severity: "error" });
-      return;
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
+    ) {
+      newErrors.email = "Invalid email address";
     }
 
-    if (!formData.email.trim()) {
-      setSnackbar({ open: true, message: "Please enter your email", severity: "error" });
-      return;
-    }
+    setErrors(newErrors);
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setSnackbar({ open: true, message: "Please enter a valid email address", severity: "error" });
-      return;
-    }
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) return;
 
     setLoading(true);
+    setStatus(null);
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      mobile: formData.mobile,
+    };
 
     try {
-      const currentDate = new Date().toLocaleString("en-US", {
-        dateStyle: "full",
-        timeStyle: "medium"
-      });
-      const currentYear = new Date().getFullYear();
-
-      const templateParams = {
-        name: formData.name,
-        mobile: formData.mobile,
-        email: formData.email,
-        to_name: company?.name || "MOOGAMBIGAI ENTERPRISES",
-        current_date: currentDate,
-        current_year: currentYear
-      };
-
-      const response = await emailjs.send(
-        "service_nmkvasf",
-        "template_52mwr2g",
-        templateParams,
-        "DIXoGh3XS7TeZs4YP"
+      await emailjs.send(
+        "service_0vypwma",
+        "template_j8xgpbn",
+        templateParams
       );
 
-      console.log("Email sent successfully:", response);
-
-      setSnackbar({ open: true, message: "Message Sent Successfully!", severity: "success" });
-      setFormData({ name: "", mobile: "", email: "" });
+      setStatus("success");
+      setFormData({
+        name: "",
+        mobile: "",
+        email: "",
+      });
     } catch (error) {
-      console.error("EmailJS Error Details:", error);
-
-      let errorMessage = "Failed to send message. ";
-
-      if (error.text) {
-        errorMessage += error.text;
-      } else if (error.status === 401 || error.status === 403) {
-        errorMessage += "Invalid EmailJS credentials. Please check your configuration.";
-      } else if (error.status === 404) {
-        errorMessage += "Service or template not found. Please verify your Service ID and Template ID.";
-      } else if (error.message) {
-        errorMessage += error.message;
-      } else {
-        errorMessage += "Please check your internet connection and try again.";
-      }
-
-      setSnackbar({ open: true, message: errorMessage, severity: "error" });
-    } finally {
-      setLoading(false);
+      console.error(error);
+      setStatus("error");
     }
+
+    setLoading(false);
   };
 
   return (
-    <Box
-      sx={{
-        p: 5,
-        mx: "auto",
-        maxWidth: { md: "50%", sm: 500, xs: 450 },
-        width: { md: "100%", sm: "100%", xs: 500 }
-      }}
-    >
-      <Card sx={{ p: 3, display: "flex", flexDirection: "column", gap: 2 }}>
-        <Typography variant="h5" fontWeight={700} align="center">
+    <Box sx={styles.container}>
+      <Card sx={{ p: 4, maxWidth: 500, width: "100%" }}>
+        <Typography variant="h5" fontWeight={700} align="center" mb={2}>
           Contact Us
         </Typography>
 
@@ -162,7 +115,10 @@ const Contact = () => {
           fullWidth
           value={formData.name}
           onChange={handleChange}
+          error={Boolean(errors.name)}
+          helperText={errors.name}
           disabled={loading}
+          sx={{ mb: 2 }}
         />
 
         <TextField
@@ -170,9 +126,12 @@ const Contact = () => {
           name="mobile"
           fullWidth
           value={formData.mobile}
-          inputProps={{ maxLength: 10 }}
           onChange={handleChange}
+          error={Boolean(errors.mobile)}
+          helperText={errors.mobile}
           disabled={loading}
+          inputProps={{ maxLength: 10 }}
+          sx={{ mb: 2 }}
           onInput={(e) => {
             e.target.value = e.target.value.replace(/[^0-9]/g, "");
           }}
@@ -184,65 +143,53 @@ const Contact = () => {
           fullWidth
           value={formData.email}
           onChange={handleChange}
+          error={Boolean(errors.email)}
+          helperText={errors.email}
           disabled={loading}
+          sx={{ mb: 3 }}
         />
 
         <Button
+          fullWidth
           variant="contained"
-          endIcon={loading ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
-          onClick={sendEmail}
+          endIcon={
+            loading ? (
+              <CircularProgress size={20} color="inherit" />
+            ) : (
+              <SendIcon />
+            )
+          }
+          onClick={handleSubmit}
           disabled={loading}
         >
           {loading ? "Sending..." : "Send"}
         </Button>
       </Card>
 
-      <List sx={{ mt: 2 }}>
-        {[
-          { icon: <Business />, label: "Name", value: company?.name },
-          { icon: <CalendarToday />, label: "Established", value: company?.established },
-          { icon: <LocationOn />, label: "Location", value: company?.location },
-          { icon: <Phone />, label: "Phone", value: company?.phone },
-          { icon: <Email />, label: "Email", value: company?.email }
-        ].map((item, index) => (
-          <ListItem key={index}>
-            <ListItemIcon>
-              {React.cloneElement(item.icon, {
-                color: "primary",
-                fontSize: isMobile ? "small" : "medium"
-              })}
-            </ListItemIcon>
-
-            <Typography sx={{ fontSize: listFontSize }}>
-              <strong>{item.label}:</strong>{" "}
-              {item.label === "Email" ? (
-                <Link href={`mailto:${item.value}`} underline="hover" color="primary">
-                  {item.value}
-                </Link>
-              ) : item.label === "Phone" ? (
-                <Link href={`tel:${item.value}`} underline="hover" color="primary">
-                  {item.value}
-                </Link>
-              ) : (
-                item.value || "-"
-              )}
-            </Typography>
-          </ListItem>
-        ))}
-      </List>
-
       <Snackbar
-        open={snackbar.open}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        open={Boolean(status)}
+        autoHideDuration={4000}
+        onClose={() => setStatus(null)}
       >
-        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity}>
-          {snackbar.message}
-        </Alert>
+        {status === "success" ? (
+          <Alert severity="success">Message sent successfully!</Alert>
+        ) : (
+          <Alert severity="error">Failed to send message</Alert>
+        )}
       </Snackbar>
     </Box>
   );
+};
+
+const styles = {
+  container: {
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f4f7f8",
+    padding: "20px",
+  },
 };
 
 export default Contact;
