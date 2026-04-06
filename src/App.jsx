@@ -17,15 +17,19 @@ function App() {
     zIndex: -1,
   };
 
-  // Prevent horizontal scroll
-  useEffect(() => {
-    document.body.style.overflowX = "hidden";
+  // // Prevent horizontal scroll
+  // useEffect(() => {
+  //   document.body.style.overflowX = "hidden";
 
-    return () => {
-      document.body.style.overflowX = "auto";
-    };
-  }, []);
-
+  //   return () => {
+  //     document.body.style.overflowX = "auto";
+  //   };
+  // }, []);
+// Remove this whole useEffect — handle it in CSS
+useEffect(() => {
+  document.body.style.overflowX = "hidden";
+  return () => { document.body.style.overflowX = "auto"; };
+}, []);
   return (
     <Provider store={store}>
       <div style={overlayStyle}></div>
