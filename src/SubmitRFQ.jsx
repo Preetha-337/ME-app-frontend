@@ -79,12 +79,13 @@ const SubmitRFQ = () => {
         "DIXoGh3XS7TeZs4YP"
       );
       
-      console.log('Success:', result.text);
+      console.log('Success:', result);
       setSnackbar({
         open: true,
         message: 'RFQ submitted successfully! We will contact you soon.',
         severity: 'success'
       });
+      console.log("subjbinoko",snackbar)
       e.target.reset(); // Clear the form
       
     } catch (error) {

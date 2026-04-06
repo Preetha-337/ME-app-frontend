@@ -134,13 +134,19 @@ const sendEmail = async () => {
     };
 
     // Send email using EmailJS
-    const response = await emailjs.send(
-      EMAILJS_CONFIG.SERVICE_ID,
-      EMAILJS_CONFIG.TEMPLATE_ID,
-      templateParams,
-      EMAILJS_CONFIG.PUBLIC_KEY 
-    );
+    // const response = await emailjs.send(
+    //   EMAILJS_CONFIG.SERVICE_ID,
+    //   EMAILJS_CONFIG.TEMPLATE_ID,
+    //   templateParams,
+    //   EMAILJS_CONFIG.PUBLIC_KEY 
+    // );
 
+      const response = await emailjs.send(
+        "service_nmkvasf",
+        "template_52mwr2g",
+        templateParams,
+        "DIXoGh3XS7TeZs4YP"
+      );
     console.log("Email sent successfully:", response);
     
     setSnackbar({
