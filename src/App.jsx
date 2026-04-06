@@ -4,6 +4,7 @@ import store from "./store";
 import Router from "./Router";
 import background from "./assets/background.jpg";
 
+
 function App() {
   const overlayStyle = {
     position: "fixed",
@@ -20,12 +21,13 @@ function App() {
     // Prevent horizontal scroll
     document.body.style.overflowX = "hidden";
 
-    // Fix iOS Safari zoom on input focus (font-size must be >= 16px)
+    // Set minimum font-size for mobile inputs dynamically
     const style = document.createElement("style");
     style.id = "mobile-zoom-fix";
     style.innerHTML = `
-      input, select, textarea {
+      input, select, textarea, button {
         font-size: 16px !important;
+        -webkit-text-size-adjust: 100%;
       }
     `;
     if (!document.getElementById("mobile-zoom-fix")) {
@@ -41,9 +43,10 @@ function App() {
 
   return (
     <Provider store={store}>
+      {/* Background overlay */}
       <div style={overlayStyle} />
 
-      {/* touchAction: manipulation disables double-tap zoom */}
+      {/* Main content */}
       <div style={{ position: "relative", zIndex: 0, touchAction: "manipulation" }}>
         <Router />
       </div>
