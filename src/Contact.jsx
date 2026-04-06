@@ -24,12 +24,12 @@ import LocationOn from "@mui/icons-material/LocationOn";
 import Phone from "@mui/icons-material/Phone";
 import Email from "@mui/icons-material/Email";
 
-// Add your actual credentials here
 const EMAILJS_CONFIG = {
-  SERVICE_ID: "service_0vypwma", 
-  TEMPLATE_ID: "template_j8xgpbn", 
-  PUBLIC_KEY: "Kj0puaWRNsFuYb-Qp" 
+  SERVICE_ID: "service_0vypwma",
+  TEMPLATE_ID: "template_j8xgpbn",
+  PUBLIC_KEY: "Kj0puaWRNsFuYb-Qp"
 };
+
 const Contact = () => {
   const company = useSelector((state) => state.company);
   const theme = useTheme();
@@ -42,7 +42,7 @@ const Contact = () => {
     mobile: "",
     email: ""
   });
-  
+
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState({
     open: false,
@@ -50,10 +50,9 @@ const Contact = () => {
     severity: "success"
   });
 
- useEffect(() => {
-  emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-}, []);
-
+  useEffect(() => {
+    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,83 +62,51 @@ const Contact = () => {
     setSnackbar({ ...snackbar, open: false });
   };
 
-const sendEmail = async () => {
- 
-  if (!formData.name.trim()) {
-    setSnackbar({
-      open: true,
-      message: "Please enter your name",
-      severity: "error"
-    });
-    return;
-  }
-  
-  if (!formData.mobile.trim()) {
-    setSnackbar({
-      open: true,
-      message: "Please enter your mobile number",
-      severity: "error"
-    });
-    return;
-  }
-  
+  const sendEmail = async () => {
+    if (!formData.name.trim()) {
+      setSnackbar({ open: true, message: "Please enter your name", severity: "error" });
+      return;
+    }
 
-  const mobileRegex = /^[0-9]{10}$/;
-  if (!mobileRegex.test(formData.mobile)) {
-    setSnackbar({
-      open: true,
-      message: "Please enter a valid 10-digit mobile number",
-      severity: "error"
-    });
-    return;
-  }
-  
-  if (!formData.email.trim()) {
-    setSnackbar({
-      open: true,
-      message: "Please enter your email",
-      severity: "error"
-    });
-    return;
-  }
-  
+    if (!formData.mobile.trim()) {
+      setSnackbar({ open: true, message: "Please enter your mobile number", severity: "error" });
+      return;
+    }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(formData.email)) {
-    setSnackbar({
-      open: true,
-      message: "Please enter a valid email address",
-      severity: "error"
-    });
-    return;
-  }
+    const mobileRegex = /^[0-9]{10}$/;
+    if (!mobileRegex.test(formData.mobile)) {
+      setSnackbar({ open: true, message: "Please enter a valid 10-digit mobile number", severity: "error" });
+      return;
+    }
 
-  setLoading(true);
+    if (!formData.email.trim()) {
+      setSnackbar({ open: true, message: "Please enter your email", severity: "error" });
+      return;
+    }
 
-  try {
-    // Get current date and time
-    const currentDate = new Date().toLocaleString('en-US', {
-      dateStyle: 'full',
-      timeStyle: 'medium'
-    });
-    const currentYear = new Date().getFullYear();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSnackbar({ open: true, message: "Please enter a valid email address", severity: "error" });
+      return;
+    }
 
-    const templateParams = {
-      name: formData.name,
-      mobile: formData.mobile,
-      email: formData.email,
-      to_name: company?.name || "MOOGAMBIGAI ENTERPRISES",
-      current_date: currentDate,
-      current_year: currentYear
-    };
+    setLoading(true);
 
-    // Send email using EmailJS
-    // const response = await emailjs.send(
-    //   EMAILJS_CONFIG.SERVICE_ID,
-    //   EMAILJS_CONFIG.TEMPLATE_ID,
-    //   templateParams,
-    //   EMAILJS_CONFIG.PUBLIC_KEY 
-    // );
+    try {
+      const currentDate = new Date().toLocaleString("en-US", {
+        dateStyle: "full",
+        timeStyle: "medium"
+      });
+      const currentYear = new Date().getFullYear();
+
+      const templateParams = {
+        name: formData.name,
+        mobile: formData.mobile,
+        email: formData.email,
+        to_name: company?.name || "MOOGAMBIGAI ENTERPRISES",
+        current_date: currentDate,
+        current_year: currentYear
+      };
 
       const response = await emailjs.send(
         "service_nmkvasf",
@@ -147,44 +114,33 @@ const sendEmail = async () => {
         templateParams,
         "DIXoGh3XS7TeZs4YP"
       );
-    console.log("Email sent successfully:", response);
-    
-    setSnackbar({
-      open: true,
-      message: "Message Sent Successfully!",
-      severity: "success"
-    });
-    
-    // Reset form
-    setFormData({ name: "", mobile: "", email: "" });
-    
-  } catch (error) {
-    console.error("EmailJS Error Details:", error);
-    
-    let errorMessage = "Failed to send message. ";
-    
-    // More detailed error handling
-    if (error.text) {
-      errorMessage += error.text;
-    } else if (error.status === 401 || error.status === 403) {
-      errorMessage += "Invalid EmailJS credentials. Please check your configuration.";
-    } else if (error.status === 404) {
-      errorMessage += "Service or template not found. Please verify your Service ID and Template ID.";
-    } else if (error.message) {
-      errorMessage += error.message;
-    } else {
-      errorMessage += "Please check your internet connection and try again.";
+
+      console.log("Email sent successfully:", response);
+
+      setSnackbar({ open: true, message: "Message Sent Successfully!", severity: "success" });
+      setFormData({ name: "", mobile: "", email: "" });
+    } catch (error) {
+      console.error("EmailJS Error Details:", error);
+
+      let errorMessage = "Failed to send message. ";
+
+      if (error.text) {
+        errorMessage += error.text;
+      } else if (error.status === 401 || error.status === 403) {
+        errorMessage += "Invalid EmailJS credentials. Please check your configuration.";
+      } else if (error.status === 404) {
+        errorMessage += "Service or template not found. Please verify your Service ID and Template ID.";
+      } else if (error.message) {
+        errorMessage += error.message;
+      } else {
+        errorMessage += "Please check your internet connection and try again.";
+      }
+
+      setSnackbar({ open: true, message: errorMessage, severity: "error" });
+    } finally {
+      setLoading(false);
     }
-    
-    setSnackbar({
-      open: true,
-      message: errorMessage,
-      severity: "error"
-    });
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <Box
@@ -244,11 +200,7 @@ const sendEmail = async () => {
       <List sx={{ mt: 2 }}>
         {[
           { icon: <Business />, label: "Name", value: company?.name },
-          {
-            icon: <CalendarToday />,
-            label: "Established",
-            value: company?.established
-          },
+          { icon: <CalendarToday />, label: "Established", value: company?.established },
           { icon: <LocationOn />, label: "Location", value: company?.location },
           { icon: <Phone />, label: "Phone", value: company?.phone },
           { icon: <Email />, label: "Email", value: company?.email }
@@ -264,19 +216,11 @@ const sendEmail = async () => {
             <Typography sx={{ fontSize: listFontSize }}>
               <strong>{item.label}:</strong>{" "}
               {item.label === "Email" ? (
-                <Link
-                  href={`mailto:${item.value}`}
-                  underline="hover"
-                  color="primary"
-                >
+                <Link href={`mailto:${item.value}`} underline="hover" color="primary">
                   {item.value}
                 </Link>
               ) : item.label === "Phone" ? (
-                <Link
-                  href={`tel:${item.value}`}
-                  underline="hover"
-                  color="primary"
-                >
+                <Link href={`tel:${item.value}`} underline="hover" color="primary">
                   {item.value}
                 </Link>
               ) : (
