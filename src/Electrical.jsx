@@ -21,12 +21,13 @@ import {
 
 function Electrical() {
   return (
-    <Box p={3} sx={{width: { xs: 500, sm:"98%", md: "100%" }}}>
+    <Box p={3} sx={{width: { xs: "100%", sm:"98%", md: "100%" }}} >
       <Typography
-        variant="h4"
+        variant="h5"
   fontWeight={700}
   align="center"
   gutterBottom
+
   sx={{ color: "navy" }}
       >
         Brands We Deal in – Electrical

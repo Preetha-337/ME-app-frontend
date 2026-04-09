@@ -52,11 +52,11 @@ const Services = () => {
   };
 
   return (
-<Box p={3} id="service" sx={{ maxWidth:{md:"100%",sm:"100%",xs:500},
-            width:{md:"100%",sm:"100%",xs:500} ,}}>
+<Box p={3} id="service" sx={{ maxWidth:{md:"100%",sm:"100%",xs:"100%"},
+            width:{md:"100%",sm:"100%",xs:"100%"} ,}}>
 <Typography
-  variant="h4"
-  fontWeight={800}
+  variant="h5"
+  fontWeight={700}
   gutterBottom
   sx={{ color: "#1e50a2", textAlign: "center" }}
 >
@@ -72,11 +72,12 @@ const Services = () => {
         <Grid item xs={6} sm={6} md={4} key={index} p={0} >
           <Card
             sx={{
+              ml:{xs:-2,md:0,sm:0},
               minHeight: 120,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width:{md:350,sm:190,xs:200},
+              width:{md:350,sm:190,xs:110},
               p: 2,
               boxShadow: 3,
               background: color.gradient || color.bg,
@@ -111,12 +112,13 @@ const Services = () => {
       <Grid item xs={12} sm={6} md={4}>
         <Card
           sx={{
+            ml:{xs:-2,md:0,sm:0},
             minHeight: 120,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             p: 1,
-                  width:{md:"100%",sm:700,xs:480},
+                  width:{md:"100%",sm:700,xs:"90%"},
             boxShadow: 3,
             background: cardColors[0]?.gradient || cardColors[0]?.bg || "#f0f8ff",
             transition: "all 0.35s ease",
@@ -142,12 +144,13 @@ const Services = () => {
       <Grid item xs={12} sm={6} md={3}>
         <Card
           sx={{
+            ml:{xs:-2,md:0,sm:0},
             minHeight: 120,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             p: 1,
-              width:{md:"100%",sm:700,xs:480},
+              width:{md:"100%",sm:700,xs:"90%"},
             boxShadow: 3,
             background: cardColors[1]?.gradient || cardColors[1]?.bg || "#fff0f5",
             transition: "all 0.35s ease",
@@ -173,13 +176,14 @@ const Services = () => {
       <Grid item xs={12} sm={6} md={4}>
         <Card
           sx={{
+            ml:{xs:-2,md:0,sm:0},
             minHeight: 120,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             p: 1,
             boxShadow: 3,
-              width:{md:"90%",sm:700,xs:480},
+              width:{md:"90%",sm:700,xs:"90%"},
             background: cardColors[2]?.gradient || cardColors[2]?.bg || "#f0fff0",
             transition: "all 0.35s ease",
             "&:hover": {

@@ -13,7 +13,7 @@ const Navbar = () => {
         bgcolor: "blueblack",
         top: "auto",
         bottom: 0,
-        width: { xs: 520, sm: "100%", md: "100%" },
+        width: { xs: "100%", sm: "100%", md: "100%" },
       }}
     >
       <Toolbar

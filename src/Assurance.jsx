@@ -125,15 +125,16 @@ const AssuranceAndQualityCharts = () => {
     <Box
       sx={{
     mb:5,
-        py: 8,
-        px: { xs: 2, sm: 3, md: 4 },
+        py: 7,
+        px: { xs: 0, sm: 3, md: 4 },
       }}
     >
       <Container maxWidth="lg">
 
         <Box mt={1}>
-          <Typography variant="h4" component="h3" gutterBottom textAlign="center" sx={{ fontWeight: 600, color: "#1e50a2", mb: 4 ,  width: { xs: 500, sm:"100%", md: "100%" },}}>
-            Our Quality Assurance Framework
+          <Typography variant="h5" component="h2" gutterBottom textAlign="center" sx={{ fontWeight: 600, color: "#1e50a2", mb: 4 ,  width: { xs: "100%", sm:"100%", md: "100%" },}}>
+            Our Quality Assurance 
+            Framework
           </Typography>
           <Grid container spacing={7} direction="row" gap={10}>
             {assurancePoints.map((point, index) => (
@@ -142,7 +143,7 @@ const AssuranceAndQualityCharts = () => {
                   elevation={2}
                   sx={{
                     p: 3,
-                     width: { xs: 450, sm:230, md: 450 },
+                     width: { xs: "100", sm:230, md: 450 },
                     height: "100%",
                     borderRadius: 3,
                     transition: "all 0.3s ease-in-out",

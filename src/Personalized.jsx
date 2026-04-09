@@ -4,14 +4,16 @@ import { Box, Card, CardContent, Typography,  List,
 
 function PersonalizedAdvice() {
   return (
-       <Box p={2}>
+       <Box p={3}>
      <Card
   elevation={0}
   sx={{
     background: "linear-gradient(135deg, rgba(255,255,255,0.4), rgba(245,247,250,0.4))",
-    width: { xs: 500, sm:"100%", md: "100%" },
+    width: { xs: "100%", sm:"100%", md: "100%" },
     borderRadius: 4,
-    borderLeft: "6px solid #1976d2",
+    p:3,
+      ml:{xs:-3,md:0,sm:0},
+    // borderLeft: "6px solid #1976d2",
     color: "#000",
     boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
     transition: "all 0.35s ease",
@@ -50,7 +52,7 @@ function PersonalizedAdvice() {
           mb: 1.5,
           borderRadius: 2,
           backgroundColor: "#f5f7fa",
-          fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1rem" },
+          fontSize: { xs: "0.9rem", sm: "0.95rem", md: "1rem" },
           lineHeight: 1.7,
           transition: "all .3s ease",
           // "&:hover": {

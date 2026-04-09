@@ -13,22 +13,31 @@ import Product1 from './Product1'
 import Client from './Clients'
 import WhyWe from './Whywe'
 import Assurance from './Assurance'
+
 const Allmodule = () => {
   return (
-    <div id="home" mt={8}>
+    <div 
+      id="home" 
+      style={{ 
+        marginTop: '32px',  // Replaced mt={8} with proper CSS
+        overflowX: 'hidden', // Prevents horizontal scroll on the main container
+        width: '100%',
+        maxWidth: '100%',
+        position: 'relative'
+      }}
+    >
+      {/* Wrap content that shouldn't scroll horizontally */}
+      <div style={{ overflowX: 'hidden' }}>
         <Home/> 
-           <Vission/>
-     
-       <Assurance/>
-       <WhyWe/>
-       <Product1/>
-        {/* <Business/> */}
+        <Vission/>
+        <Assurance/>
+        <WhyWe/>
+        <Product1/>
         <Production/>
-        
         <Specification/>
         <Markets/>
         <Personalized/>
-        {/* <Products/> */}
+      </div>
     </div>
   )
 }

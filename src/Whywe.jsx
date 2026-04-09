@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <Box sx={{    width:{md:"100%",sm:"100%",xs:510} ,
+    <Box sx={{    width:{md:"100%",sm:"100%",xs:"100%"} ,
       overflowX: 'auto', py: 4 }}>
       <Grid
         container
@@ -65,10 +65,9 @@ const WhyChooseUs = () => {
             item
             key={index}
             sx={{
-              flex: '0 0 300px', 
-              
+              flex: '0 0 300px',  
               display: 'flex',
-                 width:{md:"100%",sm:"100%",xs:1000} ,
+                 width:{md:"100%",sm:"100%",xs:"100"} ,
      
             }}
           >
@@ -79,7 +78,6 @@ const WhyChooseUs = () => {
          
                 display: 'flex',
                 flexDirection: 'column',
-                
                 transition: 'transform 0.3s, box-shadow 0.3s',
                 backgroundColor: index === 0 ? theme.palette.primary.light : 'white', 
                 color: index === 0 ? '#fff' : 'text.primary', 
@@ -96,7 +94,7 @@ const WhyChooseUs = () => {
                   </Box>
                 )}
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   component="h3"
                   gutterBottom
                   textAlign="center"

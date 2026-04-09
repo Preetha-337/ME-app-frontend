@@ -30,7 +30,7 @@ function Router() {
           <Box
             component="img"
             src={ME}
-            sx={{ width: { md: "5%", xs: 50 }, borderRadius: "20%" }}
+            sx={{ width: { md: "5%", xs: "10%"}, borderRadius: "20%" }}
           />
 
           <Typography>MOOGAMBIGAI ENTERPRISES</Typography>

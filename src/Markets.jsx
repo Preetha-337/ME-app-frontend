@@ -24,7 +24,7 @@ const cardStyle = {
 
 
   return (
-    <Box p={2} sx={{width:{xs:500,sm:"100%",md:"100%"}}}>
+    <Box p={2} sx={{width:{xs:"90%",sm:"100%",md:"100%"}}}>
       <Typography variant="h6" gutterBottom sx={{ mb: 2 ,fontWeight: 700,color: "#1e50a2", textAlign: "center"}}>
         Market and Clients
       </Typography>

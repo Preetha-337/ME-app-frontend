@@ -60,9 +60,11 @@ const Home = () => {
   return (
     <Box
     id="home"
-      p={2}
-      sx={{    maxWidth:{md:"100%",sm:"100%",xs:500},
-            width:{md:"98%",sm:"100%",xs:500} ,
+      p={3}
+      sx={{    maxWidth:{md:"100%",sm:"100%",xs:"100%"},
+            width:{md:"98%",sm:"100%",xs:"100%"} ,
+          
+              ml:{xs:-3,md:0,sm:0},
         }}
       display="flex"
       justifyContent="center"

@@ -34,9 +34,9 @@ function Business() {
       justifyContent="center"
       alignItems="center"
       sx={{
-        p: 3,
-       maxWidth:{md:"100%",sm:"100%",xs:500},
-            width:{md:"98%",sm:"100%",xs:500} ,
+        p: 1,
+       maxWidth:{md:"100%",sm:"100%",xs:"100%"},
+            width:{md:"98%",sm:"100%",xs:"100%"} ,
         
       }}
     >
@@ -76,20 +76,23 @@ function Business() {
                     mb: 2,
                   }}
                 >
-                  Moogambigai Enterprises
+                 MOOGAMBIGAI ENTERPRISES
                 </Typography>
 
                 <Typography
                   sx={{
                     fontSize: { xs: "0.9rem", sm: "1rem", md: "1.05rem" },
-                    lineHeight: 1.8,
+                    lineHeight: 1.8, textAlign: "center",
                     mb: 2,
                   }}
                 >
                   Moogambigai Enterprises specializes in the trading,
                   distribution, and supply of high-quality wiring harnesses
                   and electrical components for diverse industrial
-                  applications.
+                  applications. With a strong focus on reliability, safety, and performance,
+                  we deliver precision-engineered solutions that meet
+                  international quality standards and customer-specific
+                  requirements.
                 </Typography>
 
                 <Typography
@@ -99,10 +102,7 @@ function Business() {
                     mb: 3,
                   }}
                 >
-                  With a strong focus on reliability, safety, and performance,
-                  we deliver precision-engineered solutions that meet
-                  international quality standards and customer-specific
-                  requirements.
+                 
                 </Typography>
 
                 {/* PRODUCTS */}

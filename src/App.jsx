@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 import Router from "./Router";
 import background from "./assets/background.jpg";
 
 function App() {
-
   const overlayStyle = {
     position: "fixed",
     inset: 0,
@@ -17,24 +16,11 @@ function App() {
     zIndex: -1,
   };
 
-  // // Prevent horizontal scroll
-  // useEffect(() => {
-  //   document.body.style.overflowX = "hidden";
-
-  //   return () => {
-  //     document.body.style.overflowX = "auto";
-  //   };
-  // }, []);
-// Remove this whole useEffect — handle it in CSS
-useEffect(() => {
-  document.body.style.overflowX = "hidden";
-  return () => { document.body.style.overflowX = "auto"; };
-}, []);
   return (
     <Provider store={store}>
       <div style={overlayStyle}></div>
 
-      <div style={{ position: "relative", zIndex: 0 }}>
+      <div style={{ position: "relative", zIndex: 1 }}>
         <Router />
       </div>
     </Provider>

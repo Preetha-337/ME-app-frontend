@@ -21,14 +21,16 @@ import img9 from "./assets/img9.jpeg"
 
 function KeyProductsServices() {
   return (
-    <Box p={2}>
+    <Box p={3}>
     <Card
   elevation={0}
   sx={{
  background: "linear-gradient(135deg, rgba(255,255,255,0.4), rgba(245,247,250,0.4))",
-     width: { xs: 500, sm:"100%", md: "100%" },
+     width: { xs: "105%", sm:"100%", md: "100%" },
+     p:2,
     borderRadius: 4,
-    borderLeft: "6px solid #1976d2",
+      ml:{xs:-3,md:0,sm:0},
+    // borderLeft: "6px solid #1976d2",
     boxShadow: "0 12px 35px rgba(0,0,0,0.15)",
     transition: "all .4s ease",
     "&:hover": {

@@ -7,7 +7,7 @@ function Banner() {
     <Box
       sx={{
         position: "relative",
-        width:{md:"100%",sm:"100%",xs:520} ,
+        width:{md:"100%",sm:"100%",xs:"100%"} ,
         height: { xs: "260px", sm: "350px", md: "500px" },
         overflow: "hidden",
         mt: 1,

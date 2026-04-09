@@ -11,14 +11,14 @@ const Product1 = () => {
   const company = useSelector((state) => state.company);
 
   return (
-    <Box p={2} id="products" sx={{  width: { xs: 500, sm: 700, md:"100%" }}}>
+    <Box p={2} id="products" sx={{  width: { xs: "100%", sm: "100%", md:"100%" }}}>
 <Card
   elevation={4}
   sx={{
     background: "linear-gradient(135deg, rgba(255,255,255,0.4), rgba(245,247,250,0.4))",
     borderRadius: 3,
     mb: 4,
-       width:{md:"95%",sm:700,xs:500} ,
+       width:{md:"95%",sm:"100%",xs:"95%"} ,
      
   }}
 >

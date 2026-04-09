@@ -19,8 +19,8 @@ import connector3 from "./assets/connector3.jpg"
 import connector4 from "./assets/connector4.jpg"
 function ProductsServices() {
   return (
-    <Box p={3} id="product" sx={{  width: { xs: 500, sm:"98%", md: "100%" },}}>
-          <Typography variant="h4" fontWeight={800}  gutterBottom  sx={{color: "#1e50a2", textAlign: "center"}}>
+    <Box p={3} id="product" sx={{  width: { xs: "100%", sm:"98%", md: "100%" },}}>
+          <Typography variant="h5" fontWeight={700}  gutterBottom  sx={{color: "#1e50a2", textAlign: "center"}}>
               PRODUCTS
               </Typography>
               <Grid container spacing={{md:7,sm:5,xs:5}} alignItems="center" sx={{ mt: {md:2,xs:3,sm:3} , ml: {md:9,xs:1.5,sm:2} }}>
@@ -28,8 +28,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+      width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -52,8 +52,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+     width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -100,8 +100,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+       width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -124,8 +124,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+       width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -148,8 +148,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+       width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -172,8 +172,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+        width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -196,8 +196,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+       width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -220,8 +220,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+     width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -244,8 +244,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+        width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -268,8 +268,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+       width:{xs:200,md:200,sm:200} ,
+       height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -319,8 +319,10 @@ function ProductsServices() {
   sx={{
      background: "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(245,247,250,0.2))",
  mt:2,
+ ml:{xs:-2,md:0,sm:0},
+ width:{xs:"95%",sm:"100%",md:"100%"},
     borderRadius: 4,
-    borderLeft: "6px solid #1976d2",
+    // borderLeft: "6px solid #1976d2",
     color: "#000",
     boxShadow: "0 12px 35px rgba(0,0,0,0.15)",
     transition: "all 0.4s ease",

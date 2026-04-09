@@ -48,15 +48,17 @@ function Specifications() {
   ];
 
   return (
-    <Box p={2}>
+    <Box p={3}>
       <Card
         ref={cardRef}
         elevation={0}
         sx={{
           background: "linear-gradient(135deg, rgba(255,255,255,0.4), rgba(245,247,250,0.4))",
           borderRadius: 4,
-          borderLeft: "6px solid #1976d2",
-            width: { xs: 500, sm:"100%", md: "100%" },
+          ml:{xs:-3,md:0,sm:0},
+          p:2,
+          // borderLeft: "6px solid #1976d2",
+            width: { xs: "107%", sm:"100%", md: "100%" },
           color: "#000",
           transform: visible ? "translateX(0)" : "translateX(-120px)",
           opacity: visible ? 1 : 0,

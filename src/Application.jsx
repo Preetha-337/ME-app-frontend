@@ -24,7 +24,7 @@ function Application() {
       container
       spacing={{xs:7,sm:7,md:4}}
     
-      sx={{  p: 5 ,width:{xs:500,sm:"100%",md:"100%"},height:"100%"}}
+      sx={{  p: 5 ,width:{xs:"100%",sm:"100%",md:"100%"},height:"100%"}}
     >
       {applications.map((app, index) => (
         <Grid
@@ -38,8 +38,9 @@ function Application() {
             elevation={3}
             sx={{
               height: "100%",
+              ml:{xs:-3,sm:0,md:0},
               textAlign: "center",
-              width:{xs:150,sm:150,md:330},
+              width:{xs:250,sm:150,md:330},
               p: 1,
               borderRadius: 3,
               background:

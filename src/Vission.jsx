@@ -24,7 +24,7 @@ function VisionMissionCards() {
         p: { xs: 1, sm: 3, md: 4 },
         my: { xs: 1, md: 4 },
       
-        width:{md:"100%",xs:500,sm:700}
+        width:{md:"100%",xs:"100%",sm:700}
       }}
     >
       <Grid
@@ -44,7 +44,7 @@ function VisionMissionCards() {
           >
                <Box
            sx={{
-  width: { xs: "100%", sm: 700, md: 350 },
+  width: { xs: "70%", sm: 700, md: 350 },
   minHeight: 200,
  
   borderRadius: "20px",
