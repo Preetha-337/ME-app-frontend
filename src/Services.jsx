@@ -72,13 +72,22 @@ const Services = () => {
         <Grid item xs={6} sm={6} md={4} key={index} p={0} >
           <Card
             sx={{
-              ml:{xs:-1.8,md:0,sm:0},
+    ml: {
+    xs: -0.5,
+    sm: 0,
+    md: 0,
+  },
+  "@media (max-width:375px)": {
+    ml: -0.7,
+  },
+  
               minHeight: 120,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               width:{md:350,sm:190,xs:110},
               p: 2,
+ 
               boxShadow: 3,
               background: color.gradient || color.bg,
               transition: "all 0.35s ease",
@@ -118,7 +127,16 @@ const Services = () => {
             alignItems: "center",
             justifyContent: "center",
             p: 1,
-                  width:{md:"100%",sm:700,xs:"90%"},
+
+  width: {
+    xs: "100%",
+    sm: 700,
+    md: "100%",
+  },
+  "@media (max-width:320px)": {
+    width: "90%",
+  },
+
             boxShadow: 3,
             background: cardColors[0]?.gradient || cardColors[0]?.bg || "#f0f8ff",
             transition: "all 0.35s ease",
