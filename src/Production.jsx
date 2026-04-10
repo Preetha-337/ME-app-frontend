@@ -17,7 +17,7 @@ import img6 from "./assets/img6.jpeg"
 import img3 from "./assets/img3.jpeg"
 import img7 from "./assets/img7.jpeg"
 import img8 from "./assets/img8.jpeg"
-import img9 from "./assets/img9.jpeg"
+ import img9 from "./assets/img9.jpeg"
 
 function KeyProductsServices() {
   return (
@@ -121,46 +121,47 @@ function KeyProductsServices() {
 </Card>
 <Grid
   container
-  spacing={{ md: 5, sm: 2, xs: 30 }}  
-  alignItems="center"
-  direction="row"
+  wrap="nowrap"   
   sx={{
     mt: { md: 2, xs: 3 },
-    px: { xs: 2, md: 0 },
-      width: { xs: 500, sm:"100%", md: "100%" },
-    ml: { md: 5, xs: 0, sm: 1 },
-    flexWrap: { xs: "nowrap", md: "wrap" }, 
-    overflowX: { xs: "auto", md: "visible" }, 
+    px:{ md: 7,sm:7, xs: 0},
+    overflowX: "auto", 
+    gap: 5,         
+    scrollBehavior: "smooth",
+
+    // Optional: hide scrollbar
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   }}
 >
-  {[img6, img8,img3, transport2, img9].map((img, index) => (
-    <Grid item key={index} xs="auto">
-      <Card
-        elevation={3}
+  {[img8, img3, transport2, img9].map((img, index) => (
+    <Card
+      key={index}
+      elevation={3}
+      sx={{
+        minWidth: 250,   // 🔥 important for horizontal layout
+        height: 200,
+        flexShrink: 0,   // 🔥 prevents shrinking
+        overflow: "hidden",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        "&:hover": {
+          transform: "scale(1.05)",
+          boxShadow: "0px 10px 25px rgba(0,0,0,0.3)",
+        },
+      }}
+    >
+      <Box
+        component="img"
+        src={img}
+        alt="product"
         sx={{
-          width: 200,
-          height: 200,
-          overflow: "hidden",
-          flexShrink: 0, 
-          transition: "transform 0.3s ease, box-shadow 0.3s ease",
-          "&:hover": {
-            transform: "scale(1.05)",
-            boxShadow: "0px 10px 25px rgba(0,0,0,0.3)",
-          },
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
         }}
-      >
-        <Box
-          component="img"
-          src={img}
-          alt="product"
-          sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
-      </Card>
-    </Grid>
+      />
+    </Card>
   ))}
 </Grid>
 
