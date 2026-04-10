@@ -104,7 +104,7 @@ const Contact = () => {
 
   return (
     <Box sx={styles.container}>
-      <Card sx={{ p: 4, maxWidth: 500, width: "100%" }}>
+      <Card sx={{ p: 2, maxWidth: 500, width: "100%" }}>
         <Typography variant="h5" fontWeight={700} align="center" mb={2}>
           Contact Us
         </Typography>
@@ -183,12 +183,12 @@ const Contact = () => {
 
 const styles = {
   container: {
-    minHeight: "100vh",
+    minHeight: {md:"80vh",xs:"100vh",sm:"80vh"},
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#f4f7f8",
-    padding: "20px",
+    padding: "2px",
   },
 };
 
