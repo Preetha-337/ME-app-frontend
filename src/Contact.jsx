@@ -183,7 +183,7 @@ const Contact = () => {
 
 const styles = {
   container: {
-    minHeight: {md:"80vh",xs:"100vh",sm:"80vh"},
+    minHeight: {md:"80vh",xs:"80vh",sm:"80vh"},
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
