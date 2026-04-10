@@ -79,14 +79,28 @@ function Business() {
                  MOOGAMBIGAI ENTERPRISES
                 </Typography>
 
-                <Typography
+              
+<Typography
+  sx={{
+    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.05rem" },
+    lineHeight: 1.8, textAlign: "center",
+                    
+    mb: 2,
+  }}
+>
+  Moogambigai Enterprises supplies industry-leading brands such as Tyco,
+  Yazaki, Delphi, KET, Sumitomo, and Molex connectors, along with terminals,
+  clips, fuses, and high-quality wiring harness parts for automotive and
+  industrial applications.
+</Typography>
+  <Typography
                   sx={{
                     fontSize: { xs: "0.9rem", sm: "1rem", md: "1.05rem" },
                     lineHeight: 1.8, textAlign: "center",
                     mb: 2,
                   }}
                 >
-                  Moogambigai Enterprises specializes in the trading,
+                  We specializes in the trading,
                   distribution, and supply of high-quality wiring harnesses
                   and electrical components for diverse industrial
                   applications. With a strong focus on reliability, safety, and performance,
@@ -94,7 +108,6 @@ function Business() {
                   international quality standards and customer-specific
                   requirements.
                 </Typography>
-
                 <Typography
                   sx={{
                     fontSize: { xs: "0.9rem", sm: "1rem", md: "1.05rem" },
