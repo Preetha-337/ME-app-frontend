@@ -28,7 +28,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-      width:{xs:200,md:200,sm:200} ,
+      width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -43,7 +43,7 @@ function ProductsServices() {
           component="img"
           src={img7}
         //  alt="terminal"
-          sx={{ width: 200, height:200,  objectFit: "cover",}}
+          sx={{ width: 250, height:200,  objectFit: "cover",}}
         />
    
     </Card>
@@ -52,7 +52,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-     width:{xs:200,md:200,sm:200} ,
+     width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -76,8 +76,8 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
-        height:200,
+       width:{xs:250,md:200,sm:200} ,
+     height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
@@ -100,7 +100,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-       width:{xs:200,md:200,sm:200} ,
+       width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -124,7 +124,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-       width:{xs:200,md:200,sm:200} ,
+        width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -148,7 +148,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-       width:{xs:200,md:200,sm:200} ,
+         width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -172,7 +172,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width:{xs:200,md:200,sm:200} ,
+         width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -196,7 +196,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-       width:{xs:200,md:200,sm:200} ,
+         width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -220,7 +220,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-     width:{xs:200,md:200,sm:200} ,
+        width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -244,7 +244,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width:{xs:200,md:200,sm:200} ,
+          width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -268,7 +268,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-       width:{xs:200,md:200,sm:200} ,
+         width:{xs:250,md:200,sm:200} ,
        height:{xs:200,md:200,sm:200} ,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -292,7 +292,7 @@ function ProductsServices() {
     <Card
       elevation={3}
       sx={{
-        width: 200,
+       width:{xs:250,md:200,sm:200} ,
         height:200,
              overflow: "hidden",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",

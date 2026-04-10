@@ -72,7 +72,7 @@ const Services = () => {
         <Grid item xs={6} sm={6} md={4} key={index} p={0} >
           <Card
             sx={{
-              ml:{xs:-2,md:0,sm:0},
+              ml:{xs:-1.8,md:0,sm:0},
               minHeight: 120,
               display: "flex",
               alignItems: "center",
