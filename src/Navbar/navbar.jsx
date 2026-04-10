@@ -47,7 +47,7 @@ const Navbar = () => {
             <Typography variant="body2" color="grey.300">
               TEL:{" "}
               <Link
-                href={`tel:${company?.phone}`}
+                href={`tel:${company?.tel}`}
                 color="inherit"
                 underline="none"
                 sx={{
@@ -58,7 +58,7 @@ const Navbar = () => {
                   },
                 }}
               >
-                {company?.phone}
+                {company?.tel}
               </Link>
             </Typography>
 

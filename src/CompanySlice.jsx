@@ -4,7 +4,8 @@ const initialState = {
   name: "MOOGAMBIGAI ENTERPRISES",
   established: 2020,
   location: "Chennai, Tamil Nadu, India",
-  phone: "+91-44-61753149 , +91-7708763750",
+  phone: "+91-7708763750",
+  tel:"+91-44-61753149",
   email: "Moogambigaid5@gmail.com",
   productRange: [
     "Automotive Wiring Harnesses",
