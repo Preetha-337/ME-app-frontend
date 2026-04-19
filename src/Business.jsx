@@ -143,7 +143,7 @@ function Business() {
                         px: 2,
                         py: 1,
                           borderRadius: "20px",
-            backgroundColor: "#e3f2fd",
+                         backgroundColor: "#e3f2fd",
                         fontWeight: 600,
                         fontSize: {
                           xs: "0.75rem",
